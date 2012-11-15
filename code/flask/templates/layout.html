@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Template &middot; Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/static/stylesheets/bootstrap.css" rel="stylesheet">
+
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+    </style>
+    <link href="/static/stylesheets/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <h3 class="muted">Monitor</h3>
+      </div>
+
+      <hr>
+
+      {% block content %}{% endblock %} 
+      
+      <hr>
+
+      <div class="footer">
+        <p>&copy; Company 2012</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/static/javascripts/bootstrap.js"></script>
+    <script src="http://alvarolizama.net:8080/application.js"></script>
+    <script type=text/javascript>
+      var jug = new Juggernaut();
+      jug.subscribe('supervisor', function(data) {
+        var newbox = '<div class="alert alert-block alert-'+data.status+' fade in">';
+        newbox += '<div><strong>'+data.user+'</strong></div>';
+        newbox += data.message;
+        newbox += '</div>';
+        $('.alerts').prepend(newbox);
+
+      });
+    </script>
+
+  </body>
+</html>

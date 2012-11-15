@@ -1,0 +1,23 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }}">
+  {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% if form.errors %}
+<div class="alert alert-error">
+  {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+  {% for error in field_errors %}
+  <li>{{ form[field_name].label }}: {{ error }}</li>
+  {% endfor %}
+  {% endfor %}
+</div>
+{% endif %}
+<form method="POST" action=".">
+  {{ form.email(size=20, placeholder="Email", class="span12") }}
+  {{ form.password(size=20, placeholder="Password", class="span12") }}
+  <button type="submit" class="btn btn-large btn-success" style="width:100%;">Entrar</button>
+</form>

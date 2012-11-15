@@ -1,0 +1,12 @@
+Flask==0.9
+Flask-Bcrypt==0.5.2
+Flask-Script==0.3.3
+Flask-WTF==0.8
+Jinja2==2.6
+Unidecode==0.04.9
+WTForms==1.0.2
+Werkzeug==0.8.3
+argparse==1.2.1
+py-bcrypt==0.2
+pymongo==2.3
+wsgiref==0.1.2
